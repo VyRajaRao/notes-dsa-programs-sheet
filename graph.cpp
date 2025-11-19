@@ -25,6 +25,24 @@ public:
             cout << endl;
         }
     }
+    void dfs_helper(int u, vector<bool> &vist) {
+        vist[u] = true;
+        cout << u << " ";
+        list<int> neighbors = l[u];
+        for(pair<int, int> v : neighbors) {
+            if(!visit[v.first]) {
+                dfs_helper(v.first, visit);
+            }
+        }
+    }
+    void dfs() {
+        vector<bool> visit(V, false);
+        for(int i=0; i<V; i++) {
+            if(!visit[i]) {
+                dfs_helper(i, visit);
+            }
+        }
+    }
 };
 int main() {
     Graph graph(5);
@@ -39,6 +57,5 @@ int main() {
     graph.addEdges(3,2,1);
     graph.addEdges(3,1,3);
     graph.addEdges(4,2,2);
-
     graph.print();
 }
