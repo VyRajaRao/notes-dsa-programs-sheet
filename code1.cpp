@@ -17,7 +17,7 @@ int main() {
     int i=1;
     
     while(i!=num){
-        int a=i*i;
+        int a = i*i;
         cout << a << " ";
         i++;
     }
